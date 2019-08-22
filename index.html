@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/white.css">
-    <link rel="shortcut icon" href="#" />
+    <link rel="shortcut icon" href="#"/>
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -28,6 +28,7 @@
 
 
 
+
     </script>
 </head>
 <body>
@@ -37,11 +38,11 @@
             <h1>Apache Commons</h1>
             <h4>State of the Union.</h4>
             <br>
-                <small>Created by
-                    <a href="https://github.com/chtompki">
-                        Rob Tompkins (chtompki)</a></small><br/>
-                <small>Presentation Address: <a href="http://bit.ly/2rj9M29">
-                    http://bit.ly/2rj9M29</a></small>
+            <small>Created by
+                <a href="https://github.com/chtompki">
+                    Rob Tompkins (chtompki)</a></small><br/>
+            <small>Presentation Address: <a href="http://bit.ly/2rj9M29">
+                http://bit.ly/2rj9M29</a></small>
             </p>
 
         </section>
@@ -72,7 +73,7 @@
         <section>
             <h1>Introduction</h1>
         </section>
-        
+
         <section>
             <h3>The Apache Commons Mission</h3>
             <p class="fragment">
@@ -84,9 +85,41 @@
             <h3>Source of shared code</h3>
             <img data-src="./images/commons-upstream.png">
         </section>
-        
+
         <section>
-            <h2>From <code style="text-transform: none;">lang</code></h2>
+            <h3>Popularity?</h3>
+            <a href="https://mvnrepository.com/popular">Maven download statistics</a> (8/22/2019)
+            <ol class="fragment">
+                <li>junit:junit - 91,366 usages</li>
+                <li>org.slf4j:slf4j-api - 37,727 usages</li>
+                <li>org.scala-lang:scala-library - 21,762 usages</li>
+                <li>com.google.guava:guava - 20,913 usages</li>
+                <li>com.android.support:appcompat-v7 - 18,616 usages</li>
+            </ol>
+        </section>
+
+        <section>
+            <h3>Popularity?</h3>
+            <a href="https://mvnrepository.com/popular">Maven download statistics</a> (8/22/2019)
+            <ol start="6">
+                <li>org.mockito:mockito-core - 17,156 usages</li>
+                <li><strong>commons-io:commons-io - 17,009 usages</strong></li>
+                <li>ch.qos.logback:logback-classic - 16,154 usages</li>
+                <li>log4j:log4j - 14,633 usages</li>
+                <li>org.clojure:clojure - 14,596 usages</li>
+            </ol>
+        </section>
+
+        <section>
+            <h3>Popularity?</h3>
+            <a href="https://mvnrepository.com/popular">Maven download statistics</a> (8/22/2019)
+            <ol start="11">
+                <li><strong>org.apache.commons:commons-lang3 - 13,987 usages</strong></li>
+                <li>com.fasterxml.jackson.core:jackson-databind - 12,648 usages</li>
+                <li>org.slf4j:slf4j-log4j12 - 12,571 usages</li>
+                <li>org.mockito:mockito-all - 12,110 usages</li>
+                <li>javax.servlet:javax.servlet-api - 11,276 usages</li>
+            </ol>
         </section>
 
         <section>
@@ -176,7 +209,7 @@ final String tokens[] = tok.getTokenArray();
 StringEscapeUtils.escapeJava("\\\b\t\r");
 // "\\\\\\b\\t\\r" </code></pre>
         </section>
-        
+
         <section>
             <h2>New functionality, unique to <code style="text-transform: none;">text</code></h2>
         </section>
@@ -215,12 +248,17 @@ dist.apply("elephant", "hippo"); // 7</code></pre>
         <section>
             <h3>What else is there?</h3>
             <ul>
-                <li class="fragment"><code>org.apache.commons.text.diff</code> contains the a variety of diff tools.</li>
-                <li class="fragment"><code>org.apache.commons.text.similarity</code> contains various other similarity/distance tools</li>
+                <li class="fragment"><code>org.apache.commons.text.diff</code> contains the a variety of diff tools.
+                </li>
+                <li class="fragment"><code>org.apache.commons.text.similarity</code> contains various other
+                    similarity/distance tools
+                </li>
                 <ul class="fragment">
                     <li>Cosine similarity and distance, Hamming distance, Jaccard distance, and Jaro-winkler.</li>
                 </ul>
-                <li class="fragment"><code>org.apache.commons.text.translate</code> mainly supports <code>StringEscapeUtils</code>, but has more...</li>
+                <li class="fragment"><code>org.apache.commons.text.translate</code> mainly supports <code>StringEscapeUtils</code>,
+                    but has more...
+                </li>
             </ul>
         </section>
 
