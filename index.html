@@ -134,158 +134,65 @@
 
         <section>
             <h3>Past</h3>
-            <br/>
             <img src="./images/JakartaProjects.png"/>
         </section>
 
         <section>
-            <h3><code style="text-transform: none;">StrBuilder</code></h3>
-            <ul>
-                <li class="fragment">An alternative to <code>java.lang.StringBuilder</code></li>
-                <li class="fragment">Better instance methods</li>
-                <li class="fragment">Not thread safe, not final</li>
-            </ul>
-            <pre class="fragment"><code class="java">StrBuilder sb = new StrBuilder("Test");
-sb.readFrom(CharBuffer.wrap(" 123")); // "Test 123"
-sb = new StrBuilder("bb");
-sb.replaceAll("b", "xbx"); // "xbxxbx"
-sb = new StrBuilder("abc");
-sb.replace(0, 1, "aaa"); // "aaabc"
-</code></pre>
+            <h1>Present</h1>
         </section>
 
         <section>
-            <h3><code style="text-transform: none;">FormattableUtils</code></h3>
-            <ul>
-                <li class="fragment">Provides basic control over formatting when using a
-                    <code>java.util.Formatter</code></li>
-                <li class="fragment">Primarily concerned with numeric precision and padding</li>
-                <li class="fragment">No generalized alternative forms</li>
-            </ul>
-            <pre class="fragment"><code class="java">FormattableUtils.append("foo",
-                        new Formatter(),
-                        FormattableFlags.LEFT_JUSTIFY,
-                        6, -1, '*').toString(); // "foo***"
-FormattableUtils.append("foo",
-                        new Formatter(),
-                        FormattableFlags.LEFT_JUSTIFY,
-                        6, -1).toString(); // "foo   "</code></pre>
+            <h3>The fork of commons-math</h3>
+            <img src="./images/commons-math-fork.png"/>
         </section>
 
         <section>
-            <h3><code style="text-transform: none;">StrSubstitutor</code></h3>
+            <h3>New Math Components</h3>
             <ul>
-                <li class="fragment">Provides a convenient way to do string substitutions</li>
-                <li class="fragment">Think of it as a template engine in one class</li>
-            </ul>
-            <pre class="fragment"><code class="java">Map valuesMap = HashMap();
-valuesMap.put("animal", "quick brown fox");
-valuesMap.put("target", "lazy dog");
-String templateString = "The ${animal} jumped " +
-                        "over the ${target}.";
-StrSubstitutor sub = new StrSubstitutor(valuesMap);
-String resolvedString = sub.replace(templateString);
-// "The quick brown fox jumped over the lazy dog."
-</code></pre>
-        </section>
-
-        <section>
-            <h3><code style="text-transform: none;">StrTokenizer</code></h3>
-            <ul>
-                <li class="fragment">Tokenizes a string based based on delimiters (separators) and supporting quoting
-                    and ignored character concepts
-                </li>
-                <li class="fragment">Aims to do a similar job to <code>java.util.StringTokenizer</code></li>
-                <li class="fragment">Offers much more control and flexibility including implementing the
-                    <code>java.util.ListIterator</code> interface
-                </li>
+                <li class="fragment">commons-rng</li>
+                <li class="fragment">commons-numbers</li>
+                <li class="fragment">commons-statistics</li>
+                <li class="fragment">commons-geometry</li>
             </ul>
         </section>
 
         <section>
-            <h3><code style="text-transform: none;">StrTokenizer</code></h3>
-            <pre><code class="java">final String input = "a;b;c;\"d;e\";f; ; ;  ";
-final StrTokenizer tok = new StrTokenizer(input);
-tok.setDelimiterChar(';');
-tok.setQuoteChar('"');
-//Matches the String trim() whitespace characters.
-tok.setIgnoredMatcher(StrMatcher.trimMatcher());
-tok.setIgnoreEmptyTokens(false);
-final String tokens[] = tok.getTokenArray();
-// String[]{"a", "b", "c", "d;e", "f", "", "", ""};</code></pre>
-        </section>
-
-        <section>
-            <h3><code style="text-transform: none;">StringEscapeUtils</code></h3>
-            <ul>
-                <li class="fragment">Provides a convenient way to do escaping</li>
-            </ul>
-            <pre class="fragment"><code class="java">StringEscapeUtils.escapeJson("He didn't say, \"stop!\"");
-// "He didn\\'t say, \\\"stop!\\\""
-StringEscapeUtils.escapeJava("\\\b\t\r");
-// "\\\\\\b\\t\\r" </code></pre>
-        </section>
-
-        <section>
-            <h2>New functionality, unique to <code style="text-transform: none;">text</code></h2>
-        </section>
-
-        <section>
-            <h3><code style="text-transform: none;">LongestCommonSubsequence</code></h3>
-            <p>The Longest commons subsequence is a classical String similarity algorithm.</p>
-            <pre><code class="java">LongestCommonSubsequence siml =
-        new LongestCommonsSubsequence();
-siml.apply("abba","abab"); // 3
-siml.apply("frog", "fog"); // 3
-siml.apply("PENNSYLVANIA", "PENNCISYLVNIA"); // 11
-smil.apply("elephant", "hippo"); // 1</code></pre>
-        </section>
-
-        <section>
-            <h3><code style="text-transform: none; font-size:90%;">LongestCommonSubsequenceDistance</code></h3>
-            <pre><code class="java">LongestCommonSubsequenceDistance dist =
-        new LongestCommonSubsequenceDistance();
-dist.apply("abba","abab"); // 2
-dist.apply("frog", "fog"); // 1
-dist.apply("PENNSYLVANIA", "PENNCISYLVNIA"); // 3
-dist.apply("elephant", "hippo"); // 11</code></pre>
-        </section>
-
-        <section>
-            <h3><code style="text-transform: none;">LevenshteinDistance</code></h3>
-            <p>Different algorithm with almost the same results.</p>
-            <pre><code class="java">LevenshteinDistance dist = new LevenshteinDistance();
-dist.apply("abba","abab"); // 2
-dist.apply("frog", "fog"); // 1
-dist.apply("PENNSYLVANIA", "PENNCISYLVNIA"); // 3
-dist.apply("elephant", "hippo"); // 7</code></pre>
-        </section>
-
-        <section>
-            <h3>What else is there?</h3>
-            <ul>
-                <li class="fragment"><code>org.apache.commons.text.diff</code> contains the a variety of diff tools.
-                </li>
-                <li class="fragment"><code>org.apache.commons.text.similarity</code> contains various other
-                    similarity/distance tools
-                </li>
-                <ul class="fragment">
-                    <li>Cosine similarity and distance, Hamming distance, Jaccard distance, and Jaro-winkler.</li>
-                </ul>
-                <li class="fragment"><code>org.apache.commons.text.translate</code> mainly supports <code>StringEscapeUtils</code>,
-                    but has more...
-                </li>
+            <h3>Other new(ish) components</h3>
+            <ul class="fragment">
+                <li>commons-text</li>
+                <li>commons-crypto</li>
             </ul>
         </section>
 
         <section>
-            <h3>What's next?</h3>
+            <h3>Easier releases for committers</h3>
+            <h3 class="fragment">(everyone, all asf committers)</h3>
+            <p class="fragment">16 releases since beginning of 2019.</p>
+            <pre class="fragment"><code class="xml"><plugin>
+  <groupId>org.apache.commons</groupId>
+  <artifactId>commons-release-plugin</artifactId>
+  <version>1.6</version>
+</plugin></code></pre>
+        </section>
+        </section>
+
+        <section>
+            <h3>Security Fixes</h3>
             <ul>
-                <li class="fragment">Release 1.1 in the next month or so? Assuming no 1.0.1......</li>
-                <li class="fragment"><code>WordUtils</code> from <code>lang</code>, with some updates.</li>
-                <li class="fragment"><code>RandomStringGenerator</code> thanks to the <code>rng</code> crew.</li>
-                <li class="fragment"><code>@Deprecated</code> on code taken from <code>lang</code></li>
+                <li class="fragment">commons-fileupload-1.4</li>
+                <li class="fragment">commons-codec-1.12</li>
+                <li class="fragment">commons-beanutils-1.9.4</li>
+                <li class="fragment">commons-compress-1.19</li>
             </ul>
+        </section>
+
+        <section>
+            <h3>Git Updates</h3>
+            <img src="./images/git-wip-to-github.png" />
+        </section>
+
+        <section>
+            <h1>Future</h1>
         </section>
 
         <section>
